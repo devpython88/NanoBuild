@@ -23,7 +23,7 @@ void removeBlock(float x, float y){
         Block b = blocks.at(i);
 
         if (b.getX() == x && b.getY() == y){
-            UnloadTexture(b.texture);
+            UnloadTexture(blocks[i].texture);
             blocks.erase(blocks.begin() + i);
             return;
         }
@@ -58,11 +58,8 @@ int main(){
     std::string currentBlockTextureName = "Planks"; // dont fix, in the loop it'll use the if statement to set it to cobble
     int currentTextureIndex = 0;
     std::string oldBlockTextureName = currentBlockTextureName;
-    Texture2D currentBlockTexture = LoadTexture(textures[currentTextureIndex].getPath().c_str());
-
     while (!WindowShouldClose()){
         if (oldBlockTextureName != currentBlockTextureName){
-            currentBlockTexture = LoadTexture(textures[currentTextureIndex].getPath().c_str());
             oldBlockTextureName = currentBlockTextureName;
         }
 
@@ -75,7 +72,7 @@ int main(){
         if (IsKeyPressed(KEY_S) && !IsKeyDown(KEY_LEFT_SHIFT)) movePlayer(&player, 0, -DEFAULT_SIZE, &cam, blocks);
         if (IsKeyPressed(KEY_A) && !IsKeyDown(KEY_LEFT_SHIFT)) movePlayer(&player, DEFAULT_SIZE, 0, &cam, blocks);
         if (IsKeyPressed(KEY_D) && !IsKeyDown(KEY_LEFT_SHIFT)) movePlayer(&player, -DEFAULT_SIZE, 0, &cam, blocks);
-        if (IsKeyPressed(KEY_RIGHT_SHIFT)) placeBlock(player.x, player.y, &blocks, currentBlockTexture);
+        if (IsKeyPressed(KEY_RIGHT_SHIFT)) placeBlock(player.x, player.y, &blocks, LoadTexture(textures[currentTextureIndex].getPath().c_str()));
         if (IsKeyDown(KEY_LEFT_SHIFT)){
             if (IsKeyDown(KEY_W)) removeBlock(player.x, player.y - DEFAULT_SIZE);
             if (IsKeyDown(KEY_S)) removeBlock(player.x, player.y + DEFAULT_SIZE);
@@ -115,8 +112,6 @@ int main(){
     for (Block b : blocks){
         UnloadTexture(b.texture);
     }
-
-    UnloadTexture(currentBlockTexture);
 
     CloseWindow();
 }
