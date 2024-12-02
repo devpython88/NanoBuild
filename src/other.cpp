@@ -1,4 +1,5 @@
 #include "other.h"
+#include <cmath>
 
 void showCurrentlySelectedBlock(std::string currentBlockName)
 {
@@ -20,5 +21,27 @@ void loadTextureFiles(std::vector<TextureObject> *textures)
         textures->push_back(TextureObject(fileName, file.path().generic_string()));
 
         std::cout << fileName << ": " << file.path().generic_string() << "\n";
+    }
+}
+
+void generateTrees(int min, int max, int radius, std::vector<Block> *array)
+{
+    initStructureModule();
+    int amount = GetRandomValue(min, max);
+
+    std::vector<std::vector<Block>> trees;
+
+    for (int i = 0; i <= amount; i++){
+        float x = (float) (std::round(GetRandomValue(-radius, radius) / 32.0f) * 32.0f);
+        float y = (float) (std::round(GetRandomValue(-radius, radius) / 32.0f) * 32.0f);
+        
+        trees.push_back(getTreeArray(x, y));
+    }
+
+
+    for (std::vector<Block> tree : trees){
+        for (Block block : tree){
+            array->push_back(block);
+        }
     }
 }

@@ -2,7 +2,7 @@
 #include "raylib.h"
 #include <vector>
 #include <iostream>
-#define DEFAULT_SIZE 50.0f
+#define DEFAULT_SIZE 32.0f
 
 class Block {
     private:
@@ -17,6 +17,13 @@ class Block {
     float getY(){ return y; }
     float getWidth(){ return width; }
     float getHeight(){ return height; }
+
+    void setX(float newX) { x = newX; }
+    void setY(float newY) { y = newY; }
+    void setWidth(float newWidth) { width = newWidth; }
+    void setHeight(float newHeight) { height = newHeight; }
+    
+
     Rectangle getRect();
 };
 

@@ -46,27 +46,38 @@ build cmake_object_order_depends_target_NanoBuild_x64: phony || .
 
 build CMakeFiles/NanoBuild_x64.dir/src/main.cpp.o: CXX_COMPILER__NanoBuild_x64_unscanned_ /c/sadik/NanoBuild/src/main.cpp || cmake_object_order_depends_target_NanoBuild_x64
   DEP_FILE = CMakeFiles/NanoBuild_x64.dir/src/main.cpp.o.d
-  FLAGS = -std=c++20 -O1 -g0
+  FLAGS = -std=c++20 -O3
   OBJECT_DIR = CMakeFiles/NanoBuild_x64.dir
   OBJECT_FILE_DIR = CMakeFiles/NanoBuild_x64.dir/src
 
 build CMakeFiles/NanoBuild_x64.dir/src/block.cpp.o: CXX_COMPILER__NanoBuild_x64_unscanned_ /c/sadik/NanoBuild/src/block.cpp || cmake_object_order_depends_target_NanoBuild_x64
   DEP_FILE = CMakeFiles/NanoBuild_x64.dir/src/block.cpp.o.d
-  FLAGS = -std=c++20 -O1 -g0
+  FLAGS = -std=c++20 -O3
   OBJECT_DIR = CMakeFiles/NanoBuild_x64.dir
   OBJECT_FILE_DIR = CMakeFiles/NanoBuild_x64.dir/src
 
 build CMakeFiles/NanoBuild_x64.dir/src/player.cpp.o: CXX_COMPILER__NanoBuild_x64_unscanned_ /c/sadik/NanoBuild/src/player.cpp || cmake_object_order_depends_target_NanoBuild_x64
   DEP_FILE = CMakeFiles/NanoBuild_x64.dir/src/player.cpp.o.d
-  FLAGS = -std=c++20 -O1 -g0
+  FLAGS = -std=c++20 -O3
   OBJECT_DIR = CMakeFiles/NanoBuild_x64.dir
   OBJECT_FILE_DIR = CMakeFiles/NanoBuild_x64.dir/src
 
 build CMakeFiles/NanoBuild_x64.dir/src/other.cpp.o: CXX_COMPILER__NanoBuild_x64_unscanned_ /c/sadik/NanoBuild/src/other.cpp || cmake_object_order_depends_target_NanoBuild_x64
   DEP_FILE = CMakeFiles/NanoBuild_x64.dir/src/other.cpp.o.d
-  FLAGS = -std=c++20 -O1 -g0
+  FLAGS = -std=c++20 -O3
   OBJECT_DIR = CMakeFiles/NanoBuild_x64.dir
   OBJECT_FILE_DIR = CMakeFiles/NanoBuild_x64.dir/src
+
+build CMakeFiles/NanoBuild_x64.dir/src/structures.cpp.o: CXX_COMPILER__NanoBuild_x64_unscanned_ /c/sadik/NanoBuild/src/structures.cpp || cmake_object_order_depends_target_NanoBuild_x64
+  DEP_FILE = CMakeFiles/NanoBuild_x64.dir/src/structures.cpp.o.d
+  FLAGS = -std=c++20 -O3
+  OBJECT_DIR = CMakeFiles/NanoBuild_x64.dir
+  OBJECT_FILE_DIR = CMakeFiles/NanoBuild_x64.dir/src
+
+build CMakeFiles/NanoBuild_x64.dir/res.rc.obj: RC_COMPILER__NanoBuild_x64_unscanned_ /c/sadik/NanoBuild/res.rc || cmake_object_order_depends_target_NanoBuild_x64
+  DEP_FILE = CMakeFiles/NanoBuild_x64.dir/res.rc.obj.d
+  OBJECT_DIR = CMakeFiles/NanoBuild_x64.dir
+  OBJECT_FILE_DIR = CMakeFiles/NanoBuild_x64.dir
 
 
 # =============================================================================
@@ -76,8 +87,8 @@ build CMakeFiles/NanoBuild_x64.dir/src/other.cpp.o: CXX_COMPILER__NanoBuild_x64_
 #############################################
 # Link the executable NanoBuild_x64.exe
 
-build NanoBuild_x64.exe: CXX_EXECUTABLE_LINKER__NanoBuild_x64_ CMakeFiles/NanoBuild_x64.dir/src/main.cpp.o CMakeFiles/NanoBuild_x64.dir/src/block.cpp.o CMakeFiles/NanoBuild_x64.dir/src/player.cpp.o CMakeFiles/NanoBuild_x64.dir/src/other.cpp.o
-  FLAGS = -std=c++20 -O1 -g0
+build NanoBuild_x64.exe: CXX_EXECUTABLE_LINKER__NanoBuild_x64_ CMakeFiles/NanoBuild_x64.dir/src/main.cpp.o CMakeFiles/NanoBuild_x64.dir/src/block.cpp.o CMakeFiles/NanoBuild_x64.dir/src/player.cpp.o CMakeFiles/NanoBuild_x64.dir/src/other.cpp.o CMakeFiles/NanoBuild_x64.dir/src/structures.cpp.o CMakeFiles/NanoBuild_x64.dir/res.rc.obj
+  FLAGS = -std=c++20 -O3
   LINK_FLAGS = -Wl,--enable-auto-import
   LINK_LIBRARIES = -lraylib
   OBJECT_DIR = CMakeFiles/NanoBuild_x64.dir

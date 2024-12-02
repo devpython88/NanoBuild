@@ -14,7 +14,10 @@ float getCenterY(){
 
 /* DRAW BLOCKS */
 void drawBlock(Block bl){
-    DrawTextureRec(bl.texture, bl.getRect(), {bl.getX(), bl.getY()}, WHITE);
+    bl.texture.width = DEFAULT_SIZE;
+    bl.texture.height = DEFAULT_SIZE;
+    
+    DrawTexture(bl.texture, bl.getX(), bl.getY(), WHITE);
 }
 
 /* DESTROY BLOCKS */
@@ -42,7 +45,6 @@ int main(){
     /* INITIALISATION */
  
     InitWindow(800, 600, "Nano Build");
-    SetTargetFPS(24);
 
     /* PLAYER AND CAMERA */
 
@@ -50,14 +52,18 @@ int main(){
 
     Camera2D cam = { 0 };
     cam.target = { player.x, player.y };
-    cam.zoom = 1.0f; 
+    cam.zoom = 1.5f; 
     cam.rotation = 0;
     cam.offset = { getCenterX(), getCenterY() };
+
+    /* GENERATE TREES */
+    generateTrees(20, 50, 750, &blocks);
 
     /* CURRENT BLOCK AND SHI */
     std::string currentBlockTextureName = "Planks"; // dont fix, in the loop it'll use the if statement to set it to cobble
     int currentTextureIndex = 0;
     std::string oldBlockTextureName = currentBlockTextureName;
+    
     while (!WindowShouldClose()){
         if (oldBlockTextureName != currentBlockTextureName){
             oldBlockTextureName = currentBlockTextureName;
@@ -109,8 +115,12 @@ int main(){
         EndDrawing();
     }
 
-    for (Block b : blocks){
+    int i = 0;
+
+    while (i < blocks.size()){
+        Block b = blocks.at(i);
         UnloadTexture(b.texture);
+        i++;
     }
 
     CloseWindow();
